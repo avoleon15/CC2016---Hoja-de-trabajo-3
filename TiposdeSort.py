@@ -1,15 +1,7 @@
 #Alvaro Jose Leon Aguilar
 #HDT 3
-
+import time
 import cProfile
-
-#cProfile
-def mi_funcion():
-    total = 0
-    for i in range(1000000):
-        total += i
-    return total
-
 import random
 #1 gnome_sort
 def gnome_sort(arr):
@@ -176,7 +168,12 @@ def heap_sort(arr):
 
 
 numeros_random = [random.randint(0,10000) for y in range(3000)]
+numeros_ordenados = [random.randint(0,10000) for y in range(3000)]
+numeros_ordenados = gnome_sort(numeros_ordenados)
+
 menu = 0
+tipo = 0
+
 while menu != 8:
     print("""1. Gnome sort
 2. Merge sort
@@ -189,33 +186,169 @@ while menu != 8:
     menu = int(input("Ingrese el numero del sort que quiere acceder: "))
     
     if menu == 1:
-        print("Array ordenado:", gnome_sort(numeros_random))
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        gnome_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        gnome_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('gnome_sort(numeros_random)')
 
-    if menu == 2:
-        print("Array ordenado:", merge_sort(numeros_random))
+    elif menu == 2:
+        start_time = time.time()
+        sorted_data = merge_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        merge_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = merge_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        merge_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('merge_sort(numeros_random)')
         
-    if menu == 3:
-        print("Array ordenado:", quick_sort(numeros_random))
+    elif menu == 3:
+        start_time = time.time()
+        sorted_data = quick_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        quick_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = quick_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        quick_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('quick_sort(numeros_random)')
         
-    if menu == 4:
-        print("Array ordenado:", radix_sort(numeros_random))
-        cProfile.run('radix_sort(numeros_random)')
+    elif menu == 4:
+        start_time = time.time()
+        sorted_data = counting_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        counting_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = counting_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        counting_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
+        cProfile.run('counting_sort(numeros_random)')
         
-    if menu == 5:
-        print("Array ordenado:", selection_sort(numeros_random))
+    elif menu == 5:
+        start_time = time.time()
+        sorted_data = selection_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        selection_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = selection_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        selection_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('selection_sort(numeros_random)')
         
-    if menu == 6:
-        print("Array ordenado:", shell_sort(numeros_random))
+    elif menu == 6:
+        start_time = time.time()
+        sorted_data = shell_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        shell_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = shell_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        shell_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('shell_sort(numeros_random)')
         
-    if menu == 7:
-        print("Array ordenado:", heap_sort(numeros_random))
+    elif menu == 7:
+        start_time = time.time()
+        sorted_data = heap_sort(numeros_random)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        heap_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Ascendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = heap_sort(numeros_random)[::-1]
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos desordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        heap_sort(sorted_data)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados (Descendente):", elapsed_time)
+        start_time = time.time()
+        sorted_data = gnome_sort(numeros_ordenados)
+        elapsed_time = time.time() - start_time
+        print("Tiempo de ejecución para datos ya ordenados:", elapsed_time)
         cProfile.run('heap_sort(numeros_random)')
         
-    if menu == 8:
+    elif menu == 8:
         print("Gracias por utilizar este programa.")
         break
+    
+    else:
+        print("Ingrese una respuesta dentro de las opciones.")
